@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeanCars</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        
+        
+
+        <nav>
+            <a href="index.html">    
+                <p id="logo" style="margin-left: 3rem;">Sean<span>Cars</span></p>
+            </a>
+          
+            <input type="checkbox" id="sidebar-active" style="visibility: hidden;">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#d90429">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+            </label>
+    
+            <div class="links-container">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d90429"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </label>
+    
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="#CONTACT">CONTACT</a></li>
+                <li><a href="buy.html">BUY A CAR</a></li>
+                <li><a href="sell.html">SELL YOUR CAR</a></li>
+                <button class="logSign" id="loginButton" style="visibility: visible;" onclick="openLogin()">LOGIN/SIGNUP</button>
+            </div>
+           
+        </nav>
+    </header>
+
+
+    <div class="bodySignup" style="display: none;">
+        <div class="signUp-form">
+            <h2>SIGNUP</h2>
+            <p id="closeBtn" onclick="closeBTN()" style="color: red;">x</p>
+            <form id="userForm" method="GET" >
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+        
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required placeholder="Enter your email address">
+        
+                <label for="contactNo">Contact Number:</label>
+                <input type="tel" id="contactNo" name="contactNo" required placeholder="Enter your contact number">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                
+                <label for="re-password">Confirm Password:</label>
+                <input type="password" id="re-password" name="re-password" required placeholder="Confirm your password">
+
+                <p>Already have an account?<span class="loginPage" onclick="openLogin()">Login</span></p>
+                <button type="submit" onclick="handleSignup()">CREATE</button>
+            </form>
+        </div>
+    </div> 
+
+
+     <div class="bodyLogin" style="display: none;">
+        <div class="login-form">
+            <h2>LOGIN</h2>
+            <p id="closeBtn" onclick="closeBTN()" style="color: red;">x</p>
+            <form id="userForm" method="GET">
+                
+                <label for="email">Email or Phone:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your address">
+        
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                
+
+                <p>Dont have an account?<span class="loginPage" onclick="openSignup()">Create account</span></p>
+                <button type="submit" onclick="handleLogin(event)">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="wrap1" id="holder">
+        <p><em>Note: Content are editable.</em></p>
+        <div class="description1">
+            <div class="image1-space">
+                <input type="file" id="fileInput" accept="image/*">
+                <img src="" id="sellImage" alt="Uploaded Image" style="display: none;">
+            </div>
+    
+            <div class="details1">
+                <h3 style="color: #d90429;" id="sellBrand" contenteditable="true">Brand</h3>
+                <h1 class="sellName" contenteditable="true">Car Name</h1> 
+                <h2 class="sellPrice" contenteditable="true">Car Price</h2>
+    
+                <ul class="list-links1">
+                    <li id="sellLocation" contenteditable="true"><img src="asset/icons/location.png">London, UK</li>
+                    <li id="sellDate" contenteditable="true"><img src="asset/icons/calendar.png">10.23.2024</li>
+                    <li><img src="asset/icons/share.png"> Share</li>
+                </ul>
+                <p contenteditable="true">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ex dolore, dolores nostrum debitis facilis in! Libero sequi rem repudiandae, fuga dolorem sit dolor quidem iure! Asperiores exercitationem praesentium temporibus?</p>
+                
+                <button id="sellCarButton">SELL CAR</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeanCars</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+    <header>
+        
+        <nav>
+            <a href="index.html">    
+                <p id="logo" style="margin-left: 3rem;">Sean<span>Cars</span></p>
+            </a>
+          
+            <input type="checkbox" id="sidebar-active" style="visibility: hidden;">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#d90429">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+            </label>
+    
+            <div class="links-container">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#d90429"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </label>
+    
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="#CONTACT">CONTACT</a></li>
+                <li><a href="buy.html">BUY A CAR</a></li>
+                <li><a href="sell.html">SELL YOUR CAR</a></li>
+                <button  class="logSign" id="loginButton" style="visibility: visible;" onclick="openLogin()">LOGIN/SIGNUP</button>
+            </div>
+           
+        </nav>
+    </header>
+
+
+    <div class="bodySignup" style="display: none;">
+        <div class="signUp-form">
+            <h2>SIGNUP</h2>
+            <p id="closeBtn" onclick="closeBTN()" style="color: red;">x</p>
+            <form id="userForm" method="GET" >
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+        
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required placeholder="Enter your email address">
+        
+                <label for="contactNo">Contact Number:</label>
+                <input type="tel" id="contactNo" name="contactNo" required placeholder="Enter your contact number">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                
+                <label for="re-password">Confirm Password:</label>
+                <input type="password" id="re-password" name="re-password" required placeholder="Confirm your password">
+
+                <p>Already have an account?<span class="loginPage" onclick="openLogin()">Login</span></p>
+                <button type="submit" onclick="handleSignup()">CREATE</button>
+            </form>
+        </div>
+    </div> 
+
+
+     <div class="bodyLogin" style="display: none;">
+        <div class="login-form">
+            <h2>LOGIN</h2>
+            <p id="closeBtn" onclick="closeBTN()" style="color: red;">x</p>
+            <form id="userForm" method="GET">
+                
+                <label for="email">Email or Phone:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your address">
+        
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                
+
+                <p>Dont have an account?<span class="loginPage" onclick="openSignup()">Create account</span></p>
+                <button type="submit" onclick="handleLogin(event)">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+
+
+   
+
+    <section id="buyBanner">
+        <img src="asset/banner.png" alt="">
+        <h1>Buy Car</h1>
+        <p><em>Note: Select the image to view more details.</em></p>
+    </section>
+
+    <div class="display_cars">
+        <div class="offered_cars">
+            <img onclick="getCarDetails()" src="asset/offeCars/1.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Toyota Vios</h2>
+            <h3 class="price">₱732,000 – ₱1,054,000</h3>
+            <p id="brand" style="display: none;">Toyota</p>
+            <p id="location" style="display: none;">Paris, France</p>
+            <p id="date" style="display: none;">12.05.2023</p>
+            <img src="asset/offeCars/1-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/2.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Kia Soluto</h2>
+            <h3 class="price">₱780,000 – ₱865,000</h3>
+            <p id="brand" style="display: none;">Kia Motors</p>
+            <p id="location" style="display: none;">London, UK</p>
+            <p id="date" style="display: none;">15.06.2023</p>
+            <img src="asset/offeCars/2-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/3.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Nissan Almera</h2>
+            <h3 class="price">₱845,000 – ₱1,210,000</h3>
+            <p id="brand" style="display: none;">Nissan</p>
+            <p id="location" style="display: none;">Tokyo, Japan</p>
+            <p id="date" style="display: none;">20.07.2023</p>
+            <img src="asset/offeCars/3-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/4.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Mitsubishi Mirage G4</h2>
+            <h3 class="price">₱769,000 – ₱929,000</h3>
+            <p id="brand" style="display: none;">Mitsubishi</p>
+            <p id="location" style="display: none;">New York, USA</p>
+            <p id="date" style="display: none;">25.08.2023</p>
+            <img src="asset/offeCars/4-buy.jpg" id="displayImg" style="display: none;">
+
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/5.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Mazda 3</h2>
+            <h3 class="price">₱1,510,000 – ₱1,790,000</h3>
+            <p id="brand" style="display: none;">Mazda Motor Corporation</p>
+            <p id="location" style="display: none;">Sydney, Australia</p>
+            <p id="date" style="display: none;">30.09.2023</p>
+            <img src="asset/offeCars/5-buy.jpg" id="displayImg" style="display: none;">
+
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/6.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Honda City</h2>
+            <h3 class="price">₱973,000 – ₱1,148,000</h3>
+            <p id="brand" style="display: none;">Honda</p>
+            <p id="location" style="display: none;">Berlin, Germany</p>
+            <p id="date" style="display: none;">05.10.2023</p>
+            <img src="asset/offeCars/6-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/7.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Honda Civic</h2>
+            <h3 class="price">₱1,583,000 – ₱1,795,000</h3>
+            <p id="brand" style="display: none;">Honda</p>
+            <p id="location" style="display: none;">Toronto, Canada</p>
+            <p id="date" style="display: none;">12.11.2023</p>
+            <img src="asset/offeCars/7-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/8.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">MG 5</h2>
+            <h3 class="price">₱698,888 – ₱878,888</h3>
+            <p id="brand" style="display: none;">SAIC Motor</p>
+            <p id="location" style="display: none;">Mumbai, India</p>
+            <p id="date" style="display: none;">22.01.2023</p>
+            <img src="asset/offeCars/8-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/9.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Volkswagen Lavida</h2>
+            <h3 class="price">₱1,251,000</h3>
+            <p id="brand" style="display: none;">Volkswagen</p>
+            <p id="location" style="display: none;">Rio de Janeiro, Brazil</p>
+            <p id="date" style="display: none;">28.02.2023</p>
+            <img src="asset/offeCars/9-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/10.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Toyota Corolla Altis</h2>
+            <h3 class="price">₱1,135,000 – ₱1,745,000</h3>
+            <p id="brand" style="display: none;">Toyota</p>
+            <p id="location" style="display: none;">Beijing, China</p>
+            <p id="date" style="display: none;">09.04.2023</p>
+            <img src="asset/offeCars/10-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/11.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">Suzuki Dzire</h2>
+            <h3 class="price">₱609,000 – ₱819,000</h3>
+            <p id="brand" style="display: none;">Suzuki</p>
+            <p id="location" style="display: none;">Mexico City, Mexico</p>
+            <p id="date" style="display: none;">19.06.2023</p>
+            <img src="asset/offeCars/11-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+        <div class="offered_cars ">
+            <img onclick="getCarDetails()" src="asset/offeCars/12.jpg" alt="">
+            <h4>Promo Available</h4>
+            <h2 class="name">GAC Empow</h2>
+            <h3 class="price">₱1,225,000 – ₱1,348,000</h3>
+            <p id="brand" style="display: none;">GAC Motor</p>
+            <p id="location" style="display: none;">Beijing, China</p>
+            <p id="date" style="display: none;">04.09.2023</p>
+            <img src="asset/offeCars/12-buy.jpg" id="displayImg" style="display: none;">
+        </div>
+
+
+    </div>
+
+
+
+    
+
+
+
+    <div class="contact_us">
+        <br>
+        <br>
+
+        <h1>Get Started!</h1>
+        <p>We're ready to help you find your dream car. Let's discuss your needs!</p>
+        <h3>Contact us►</h3>
+        <h3>+639172363015</h3>
+        <h3>SeanCars@gmail.com</h3>
+
+        <div class="social_links">
+            <ul>
+                <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="asset/icons/facebook.png" alt=""></a>
+                <a href="http://www.x.com" target="_blank" rel="noopener noreferrer"><img src="asset/icons/x.png" alt=""></a>
+                <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="asset/icons/instagram.png" alt=""></a>
+                <a href="http://www.tiktok.com" target="_blank" rel="noopener noreferrer"><img src="asset/icons/tiktok.png" alt=""></a>
+            </ul>
+        </div>
+        <h3 id="CONTACT">© 2024 Sean Cars. All rights reserved.
+        </h3>
+        
+    </div>
+    
+
+
+
+
+   
+        
+
+
+    <script src="script.js" defer></script>
+    
+    
+</body>
+</html>

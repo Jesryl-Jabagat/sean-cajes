@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    height: 3rem;
+    background-color: #0082e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#logo {
+    color: white;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.logSign {
+    background-color: #fff;
+    color: #0082e6;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.navbar a{
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    display: none; /* Hidden by default */
+    
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Positioning for dropdown */
+        background-color: #0082e6; /* Background color */
+        width: 100%; /* Full width */
+        top: 60px; /* Position below the navbar */
+        left: 0; /* Align left */
+        z-index: 1; /* Ensure it appears above other elements */
+        padding-left: 0; /* Remove left padding */
+        margin-top: 10px; /* Add some spacing from navbar */
+        
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+        height: 100vh;
+        text-align: center;
+        
+    }
+
+    .navbar-toggler {
+        justify-content: center;
+        display: block; /* Show hamburger icon on small screens */
+        background-color: transparent; /* Transparent background */
+        border: none; /* No border */
+        color:white; /* Icon color */
+        font-size: 24px; /* Icon size */
+        cursor: pointer; /* Pointer cursor */
+    }
+    /* Change the color of the hamburger icon */
+.navbar-toggler i {
+    color: #ff0000; /* Replace with your desired color */
+}
+}
+    </style><!-- Link to your CSS file -->
+    <title>Responsive Navbar</title>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">    
+        <p id="logo" style="text-decoration: none;">Sean<span>Cars</span></p>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#CONTACT">CONTACT</a></li>
+        <li><a href="buy.html">BUY CAR</a></li>
+        <li><a href="sell.html">SELL CAR</a></li>
+        <button class="logSign" id="loginButton" onclick="openLogin()">LOGIN/SIGNUP</button>
+    </ul>
+    
+    <p id="username" style="display: none;">name</p>
+    <img src="asset/profile-default.png" class="user-profile" style="visibility: hidden;" onclick="onSet()">
+    <div id="userSettings" style="display: none;">
+        <ul>
+            <li>Profile</li>
+            <li>Settings</li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+    <button class="navbar-toggler" id="hamburgerIcon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i> <!-- Font Awesome Hamburger Icon -->
+    </button>
+</div>
+
+
+</body>
+</html>
+
+<script>// script.js
+
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active'); // Toggle the 'active' class to show/hide links
+    }</script>
